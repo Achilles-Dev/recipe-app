@@ -1,0 +1,12 @@
+<div class="d-flex flex-column mt-6 gap-12 w-[50rem] mx-auto">
+  <h1 class="text-center text-3xl font-bold text-slate-800">Generating shopping List</h1>
+  <div>
+    <h2>Choose an inventory to use</h2>
+    <%= bootstrap_form_with(url: shopping_lists_path, method: :get) do |form| %>
+      <%= form.hidden_field :recipe_id, value: @recipe_id %>
+      <%= form.select :inventory_id, @inventories.collect {|i| [ i.name, i.id ] }, { include_blank: true } %>
+      <%= form.submit 'Generate', class: 'btn btn-primary mt-3' %>
+    <% end %>
+  </div>
+  
+</div>

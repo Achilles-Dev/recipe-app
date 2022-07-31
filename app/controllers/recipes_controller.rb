@@ -1,6 +1,6 @@
 class RecipesController < ApplicationController
+  before_action :authenticate_user!, except: [:public_recipes]
   before_action do
-    authenticate_user! except: [:public_recipes]
     @user = current_user
     @foods = RecipeFood.find_by(recipe: @recipe)
   end

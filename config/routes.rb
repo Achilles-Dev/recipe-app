@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "articles#index"
+  root 'recipes#public_recipes'
   resources :foods, except: [:update]
   resources :inventories, except: [:update] do
     resources :inventory_foods, only: [:new, :create, :destroy]
@@ -13,5 +14,4 @@ Rails.application.routes.draw do
   end
   resources :shopping_lists, only: [:index, :create]
   get '/recipes/:recipe_id/generate_shopping_lists', to: 'shopping_lists#generate_shopping_lists', as: 'generate_shopping_lists'
-  root "recipes#public_recipes"
 end
