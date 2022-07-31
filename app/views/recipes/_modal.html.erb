@@ -1,0 +1,20 @@
+<div class="modal fade" id="ingredientModal" tabindex="-1" aria-labelledby="ingredientModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= bootstrap_form_with(url: shopping_lists_path, method: :get) do |form| %>
+        <div class="modal-body">
+            <%= form.hidden_field :recipe_id, value: @recipe.id %>
+            <%= form.select :inventory_id, @inventories.collect {|i| [ i.name, i.id ] }, { include_blank: true } %>
+        </div>
+        <div class="modal-footer">
+          <%= form.submit 'Generate', class: 'btn btn-primary mt-3' %>
+        </div>
+      <% end %>
+      
+    </div>
+  </div>
+</div>

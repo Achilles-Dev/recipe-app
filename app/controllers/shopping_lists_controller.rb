@@ -20,9 +20,4 @@ class ShoppingListsController < ApplicationController
       total + (food[:price] * food.recipe_foods.where(food:).pluck('quantity')[0])
     end
   end
-
-  def generate_shopping_lists
-    @inventories = Inventory.all
-    @recipe_id = params[:recipe_id]
-  end
 end

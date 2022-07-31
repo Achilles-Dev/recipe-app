@@ -17,13 +17,14 @@
   <% if @user == @recipe.user %>
     <div class='d-flex flex-row justify-content-between px-5 mt-5'>
       <div>
-        <%=form_with url: generate_shopping_lists_path(@recipe.id), method: :get do %>
-          <button class="btn btn-primary">Generate shopping list</button>
-        <% end %>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ingredientModal">
+          Generate shopping list
+        </button>
       </div>
       <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn btn-primary'%>
     </div>
   <% end %>
+  <%= render "recipes/modal"%>
   <hr style="padding: 0 100px; border-top: 2px solid black">
   <%= render partial: "recipes/ingredients_table", locals: { recipe: @recipe } %>   
 <% else %>
