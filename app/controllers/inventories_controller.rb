@@ -1,8 +1,6 @@
 class InventoriesController < ApplicationController
-  before_action do
-    authenticate_user!
-    @user = current_user
-  end
+  before_action :authenticate_user!
+  before_action :set_user, only: %i[index create]
 
   def index
     @inventories = @user.inventories
@@ -28,7 +26,7 @@ class InventoriesController < ApplicationController
   end
 
   def show
-    @inventory = Inventory.find(params[:id])
+    @inventory = Inventory.includes(inventory_foods: %i[food inventory]).find(params[:id])
   end
 
   def destroy
@@ -42,5 +40,9 @@ class InventoriesController < ApplicationController
 
   def inventory_params
     params.require('inventory').permit(:name)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

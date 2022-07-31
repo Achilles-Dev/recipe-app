@@ -1,8 +1,6 @@
 class FoodsController < ApplicationController
-  before_action do
-    authenticate_user!
-    @user = current_user
-  end
+  before_action :authenticate_user!
+  before_action :set_user, only: %i[index create]
 
   def index
     @foods = @user.foods
@@ -38,5 +36,9 @@ class FoodsController < ApplicationController
 
   def food_params
     params.require(:food).permit(:name, :measurement_unit, :price)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

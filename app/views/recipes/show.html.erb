@@ -26,7 +26,7 @@
   <% end %>
   <%= render "recipes/modal"%>
   <hr style="padding: 0 100px; border-top: 2px solid black">
-  <%= render partial: "recipes/ingredients_table", locals: { recipe: @recipe } %>   
+  <%= render "recipes/ingredients_table", recipe: @recipe %>   
 <% else %>
   <h1 class="text-center mb-4"> You cannot access this recipe's details</h1>
 <% end %>

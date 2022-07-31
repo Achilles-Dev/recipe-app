@@ -1,9 +1,6 @@
 class RecipesController < ApplicationController
   before_action :authenticate_user!, except: [:public_recipes]
-  before_action do
-    @user = current_user
-    @foods = RecipeFood.find_by(recipe: @recipe)
-  end
+  before_action :set_user
 
   def index
     @recipes = @user.recipes
@@ -29,7 +26,7 @@ class RecipesController < ApplicationController
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:user, recipe_foods: %i[food recipe]).find(params[:id])
     @inventories = Inventory.all
   end
 
@@ -41,12 +38,16 @@ class RecipesController < ApplicationController
   end
 
   def public_recipes
-    @public_recipes = Recipe.where(public: true).order('created_at DESC')
+    @public_recipes = Recipe.includes(:user, :foods, :recipe_foods).where(public: true).order('created_at DESC')
   end
 
   private
 
   def recipe_params
     params.require('recipe').permit(:name, :description, :cooking_time, :preparation_time, :public)
+  end
+
+  def set_user
+    @user = current_user
   end
 end

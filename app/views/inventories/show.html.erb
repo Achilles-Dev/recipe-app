@@ -14,7 +14,7 @@
       <td><%=inventory_food.food.name%></td>
       <td><%=inventory_food.quantity%></td>
       <td>
-        <%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-link" %>
+        <%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory, inventory_food), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-link" %>
       </td>
     </tr>
   <% end %>

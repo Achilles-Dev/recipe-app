@@ -1,8 +1,6 @@
 class RecipeFoodsController < ApplicationController
-  before_action do
-    authenticate_user!
-    @recipe = Recipe.find(params[:recipe_id])
-  end
+  before_action :authenticate_user!
+  before_action :set_recipe, only: %i[create new]
 
   def new
     @recipe_food = RecipeFood.new
@@ -24,7 +22,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def destroy
-    @recipe_food = RecipeFood.find(params[:id])
+    @recipe_food = RecipeFood.includes(:recipe).find(params[:id])
     @recipe_food.destroy
     redirect_to recipe_path(@recipe_food.recipe), notice: 'Food Successfully deleted'
   end
@@ -33,5 +31,9 @@ class RecipeFoodsController < ApplicationController
 
   def recipe_food_params
     params.require(:recipe_food).permit(:quantity, :food_id)
+  end
+
+  def set_recipe
+    @recipe = Recipe.find(params[:recipe_id])
   end
 end

@@ -10,8 +10,13 @@
           <p>By: <%= recipe.user.name%></p>
         </div>
         <div>
-          <p>Total food items: <%= 0%></p>
-          <p>Total price: $<%= 0%></p>
+          <p>Total food items: <%= recipe.foods.length%></p>
+          <p>Total price: 
+            <% @total_price = recipe.foods.reduce(0) do |total, food| %>
+            <% total + (food[:price] * recipe.recipe_foods.where(food: food).pluck('quantity')[0]) %>
+            <% end %>
+            $<%= @total_price %>
+          </p>
         </div>
       </div>
     <% end%>

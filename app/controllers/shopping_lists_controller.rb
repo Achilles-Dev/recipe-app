@@ -6,7 +6,7 @@ class ShoppingListsController < ApplicationController
     redirect_to inventories_path if Inventory.first.nil?
     @inventory = Inventory.includes(:foods).find(params[:inventory_id])
     if @inventory.foods.first.nil?
-      @all_foods = @recipe.foods
+      @all_foods = @recipe.foods.includes(:recipe_foods)
     else
       @all_foods = []
       @recipe.foods.each do |recipe_food|
