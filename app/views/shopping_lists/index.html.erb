@@ -1,0 +1,31 @@
+<div class="d-flex flex-column mt-6 gap-12 w-[50rem] mx-auto">
+  <h1 class="text-center text-3xl font-bold text-slate-800">Shopping List</h1>
+  <div class="d-flex flex-row justify-content-between font-bold px-10 text-slate-700">
+    <div>
+      <p>Amount of food items to buy: <%= @food_count %></p>
+      <p>Total value of food needed: $<%= @total_price %></p>
+    </div>
+    <div>
+      <p>Recipe: <%= link_to @recipe.name, recipe_path(@recipe.id) %> </p>
+      <p>inventory: <%= link_to @inventory.name, inventory_path(@inventory.id) %></p>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Food</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @all_foods.each do |food| %>
+        <tr>
+          <td><%= food[:name] %></td>
+          <td><%= food.recipe_foods.where(food: food).pluck('quantity')[0] %> <%= food[:measurement] %></td>
+          <td>$<%= food[:price] %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,6 @@
+<h2 class="text-center my-4">Add Food to Inventory</h2>
+<%= bootstrap_form_with(model: @inventory_food, url: inventory_inventory_foods_path) do |form| %>
+    <%= form.number_field :quantity, step: :any, placeholder: 'Quantity', min: 0, class: "form-control mb-4" %>
+    <%= form.collection_select :food_id, @inventory.user.foods, :id, :name, { include_blank: true }, class: "form-select" %>
+    <%= form.submit 'Save Ingredient', class: 'btn btn-primary mt-3' %>
+<% end %>
