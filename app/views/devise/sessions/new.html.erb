@@ -5,12 +5,12 @@
   </div>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-    <div class="d-flex flex-column w-100 p-2">
+    <div class="d-flex flex-column w-100 p-2" data-controller="toggle">
     <div class= "d-flex flex-column w-100">
       <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-100 mb-4 px-4 py-3 rounded-pill", placeholder: "Email" %>
       <div class="form-control d-flex justify-content-between w-100 mb-4 py-2 gap-2 rounded-pill">
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control border-0 px-2 py-2", placeholder: "Password" %>
-        <button id="show-pass" class="border-0 bg-white"><%= image_tag("show.svg", :alt => "show") %></button>
+        <%= f.password_field :password, autocomplete: "current-password", class: "form-control border-0 px-2 py-2", placeholder: "Password", "data-toggle-target": "unhide" %>
+        <button type="button" id="show-pass" data-toggle-target="show" data-action="click->toggle#password" class="border-0 bg-white"><%= image_tag("show.svg", alt: "show")%></button>
       </div>
       <div class="d-flex justify-content-end">
         <%= link_to "Forgot password?", new_password_path(resource_name), class: "header-color" %><br />

@@ -9,6 +9,8 @@ gem 'bootstrap', '~> 5.2.0'
 
 gem 'bootstrap_form', '~> 5.1.0'
 
+gem 'stimulus-rails'
+
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.3', '>= 7.0.3.1'
 
