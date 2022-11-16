@@ -1,1 +1,31 @@
 @import "bootstrap";
+
+$color_1: #2E3E5C;
+$color_2: #9FA5C0;
+$color_3: #1FCC79;
+$color_4: #FFF;
+
+.header-color {
+	color: $color_1;
+}
+
+.p-color {
+  color: $color_2;
+}
+
+.g-color {
+  color: $color_3;
+}
+
+.primary-btn {
+  background: $color_3;
+  color: $color_4;
+  font-size: 20px;
+}
+
+.primary-btn:hover {
+  background: $green-400;
+  color: $color_4;
+}
+
+
