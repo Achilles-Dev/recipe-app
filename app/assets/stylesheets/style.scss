@@ -4,6 +4,13 @@ $color_1: #2E3E5C;
 $color_2: #9FA5C0;
 $color_3: #1FCC79;
 $color_4: #FFF;
+$color_5: #f9f9fa;
+$color_6: #3E5481;
+
+body {
+  min-height: 100%;
+  background: $color_5;
+}
 
 .header-color {
 	color: $color_1;
@@ -17,6 +24,10 @@ $color_4: #FFF;
   color: $color_3;
 }
 
+.pass-info-color {
+  color: $color_6;
+}
+
 .primary-btn {
   background: $color_3;
   color: $color_4;
@@ -26,6 +37,30 @@ $color_4: #FFF;
 .primary-btn:hover {
   background: $green-400;
   color: $color_4;
+}
+
+@include media-breakpoint-up(md) { 
+  body {
+
+  }
+  .custom-signup, .custom-signin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    >div {
+      background: $color_4;
+      z-index: 100;
+      border-radius: 15px;
+      box-shadow: 0 2px 4px 0 $color_1;
+      padding: 20px;
+    }
+  }
+
+  .custom-signin {
+    margin-top: 40px;
+  }
 }
 
 

@@ -1,24 +1,41 @@
-<h2 class="text-center mt-5">Sign up</h2>
-
-<%= form_for(resource, as: resource_name, method: :post, url: registration_path(resource_name)) do |f| %>
-<div class="d-flex flex-column align-items-center">
-  <%= render "devise/shared/error_messages", resource: resource %>
- <div class= "d-flex flex-column align-items-center w-75 mb-3"> 
-    <%= f.text_field :name ,class: "form-control w-75 mb-4", placeholder: "Name" %>
-
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control w-75 mb-4", placeholder: "Email" %>
-
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control w-75 mb-4", placeholder: "Password" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password",  class: "form-control w-75 mb-4", placeholder: "Confirm password" %>
-
-    <%= f.submit "Sign up", class: "form-control w-75 btn btn-primary"%>
+<section class="custom-signup">
+  <div>
+    <div class="text-center mb-3">
+      <h2 class="m-2 header-color">Welcome!</h2>
+      <p class="p-color m-0">Please enter your details here</p>
     </div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+    <%= form_for(resource, as: resource_name, method: :post, url: registration_path(resource_name)) do |f| %>
+      <div class="d-flex flex-column w-100 p-2" data-controller="toggle">
+        <%= render "devise/shared/error_messages", resource: resource %>
+        <div class= "d-flex flex-column w-100"> 
+          <%= f.text_field :name, class: "form-control w-100 mb-4 px-4 py-3 rounded-pill", placeholder: "Name" %>
 
-</div>
+          <%= f.email_field :email, autocomplete: "email", class: "form-control w-100 mb-4 px-4 py-3 rounded-pill", placeholder: "Email" %>
+
+          <div class="form-control d-flex justify-content-between w-100 mb-4 py-2 gap-2 rounded-pill">
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control border-0 px-2 py-2", placeholder: "Password", "data-toggle-target": "unhide" %>
+              <button type="button" id="show-pass" data-toggle-target="show" data-action="click->toggle#password" class="border-0 bg-white"><%= image_tag("show.svg", alt: "show")%></button>
+          </div>
+          <div class="form-control d-flex justify-content-between w-100 mb-4 py-2 gap-2 rounded-pill">
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control border-0 px-2 py-2", placeholder: "Confirm password", "data-toggle-target": "unhide" %>
+              <button type="button" id="show-pass" data-toggle-target="show" data-action="click->toggle#password_confirmation" class="border-0 bg-white"><%= image_tag("show.svg", alt: "show")%></button>
+          </div>
+
+          <h5 class="pass-info-color mb-2">Your Password must contain:</h5>
+          <% if @minimum_password_length %>
+          <p class="$color_1 m-0">At least <%= @minimum_password_length %> characters</p>
+          <% end %><br />
+
+          <%= f.submit "Sign up", class: "form-control w-100 mt-4 btn primary-btn py-3 rounded-pill"%>
+        </div>
+      </div>
+    <% end %>
+    <p class="text-center m-0">Already have an account?
+      <%= link_to "Sign in", session_path(resource_name), class: "g-color text-decoration-none ms-2 fs-5" %><br />
+    </p>
+  </div>
+</section>
+
+
 
