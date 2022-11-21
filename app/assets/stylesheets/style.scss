@@ -1,11 +1,11 @@
 @import "bootstrap";
 
-$color_1: #2E3E5C;
-$color_2: #9FA5C0;
-$color_3: #1FCC79;
-$color_4: #FFF;
+$color_1: #2e3e5c;
+$color_2: #9fa5c0;
+$color_3: #1fcc79;
+$color_4: #fff;
 $color_5: #f9f9fa;
-$color_6: #3E5481;
+$color_6: #3e5481;
 
 body {
   min-height: 100%;
@@ -13,7 +13,7 @@ body {
 }
 
 .header-color {
-	color: $color_1;
+  color: $color_1;
 }
 
 .p-color {
@@ -39,16 +39,15 @@ body {
   color: $color_4;
 }
 
-@include media-breakpoint-up(md) { 
-  body {
-
-  }
-  .custom-signup, .custom-signin {
+@media (min-width: 768px) {
+  .custom-signup,
+  .custom-signin {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 10;
+
     >div {
       background: $color_4;
       z-index: 100;
@@ -62,5 +61,3 @@ body {
     margin-top: 40px;
   }
 }
-
-
