@@ -18,8 +18,8 @@
               <button type="button" id="show-pass" data-toggle-target="show" data-action="click->toggle#password" class="border-0 bg-white"><%= image_tag("show.svg", alt: "show")%></button>
           </div>
           <div class="form-control d-flex justify-content-between w-100 mb-4 py-2 gap-2 rounded-pill">
-              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control border-0 px-2 py-2", placeholder: "Confirm password", "data-toggle-target": "unhide" %>
-              <button type="button" id="show-pass" data-toggle-target="show" data-action="click->toggle#password_confirmation" class="border-0 bg-white"><%= image_tag("show.svg", alt: "show")%></button>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control border-0 px-2 py-2", placeholder: "Confirm password", "data-toggle-target": "unhideconf" %>
+              <button type="button" id="showconf" data-toggle-target="showconf" data-action="click->toggle#password_confirmation" class="border-0 bg-white"><%= image_tag("show.svg", alt: "show")%></button>
           </div>
 
           <h5 class="pass-info-color mb-2">Your Password must contain:</h5>

@@ -1,27 +1,47 @@
 import { Controller } from '@hotwired/stimulus';
 
 export default class extends Controller {
-  static targets = ["show", "unhide"];
+  static targets = ["show", "unhide", "showconf", "unhideconf"];
 
   initialize() {
-    this.imageIcon =  this.value.firstChild;
+    this.imageIcon =  this.passValue.firstChild;
+    this.passImageIcon = this.passConfValue.firstChild;
   }
   password() {
 
-    if (this.value.firstChild.nodeName === 'IMG') {
-      this.value.textContent = "hide";
-      this.input.type = "text";
+    if (this.passValue.firstChild.nodeName === 'IMG') {
+      this.passValue.textContent = "hide";
+      this.passInput.type = "text";
     } else {
-      this.value.textContent = '';
-      this.value.appendChild(this.imageIcon);
-      this.input.type = "password";
+      this.passValue.textContent = '';
+      this.passValue.appendChild(this.imageIcon);
+      this.passInput.type = "password";
     }
   }
 
-  get value() {
+  password_confirmation() {
+    if (this.passConfValue.firstChild.nodeName === 'IMG') {
+      this.passConfValue.textContent = "hide";
+      this.passConfInput.type = "text";
+    } else {
+      this.passConfValue.textContent = '';
+      this.passConfValue.appendChild(this.passImageIcon);
+      this.passConfInput.type = "password";
+    }
+  }
+
+  get passValue() {
     return this.showTarget;
   }
-  get input() {
+  get passInput() {
     return this.unhideTarget;
+  }
+
+  get passConfValue() {
+    return this.showconfTarget
+  }
+
+  get passConfInput() {
+    return this.unhideconfTarget;
   }
 }
