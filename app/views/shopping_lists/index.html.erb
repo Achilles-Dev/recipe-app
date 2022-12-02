@@ -23,7 +23,7 @@
         <tr>
           <td><%= food[:name] %></td>
           <td><%= food.recipe_foods.where(food: food).pluck('quantity')[0] %> <%= food[:measurement] %></td>
-          <td>$<%= food[:price] %></td>
+          <td><%= food[:price] * food.recipe_foods.where(food:).pluck('quantity')[0] %></td>
         </tr>
       <% end %>
     </tbody>
