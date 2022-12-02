@@ -10,9 +10,7 @@ class ShoppingListsController < ApplicationController
     else
       @all_foods = []
       @recipe.foods.each do |recipe_food|
-        @inventory.foods.each do |inventory_food|
-          @all_foods.push(recipe_food) unless recipe_food.name == inventory_food.name
-        end
+        @all_foods.push(recipe_food) unless @inventory.foods.include?(recipe_food.name)
       end
     end
     @food_count = @all_foods.length
