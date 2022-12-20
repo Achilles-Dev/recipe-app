@@ -4,6 +4,7 @@ class RecipeFoodsController < ApplicationController
 
   def new
     @recipe_food = RecipeFood.new
+    @foods = Food.all
   end
 
   def create
@@ -22,7 +23,7 @@ class RecipeFoodsController < ApplicationController
   end
 
   def destroy
-    @recipe_food = RecipeFood.includes(:recipe).find(params[:id])
+    @recipe_food = RecipeFood.find(params[:id])
     @recipe_food.destroy
     redirect_to recipe_path(@recipe_food.recipe), notice: 'Food Successfully deleted'
   end

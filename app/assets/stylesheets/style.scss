@@ -1,1 +1,65 @@
 @import "bootstrap";
+
+$color_1: #2e3e5c;
+$color_2: #9fa5c0;
+$color_3: #1fcc79;
+$color_4: #fff;
+$color_5: #f9f9fa;
+$color_6: #3e5481;
+
+body {
+  min-height: 100%;
+  background: $color_5;
+}
+
+.header-color {
+  color: $color_1;
+}
+
+.p-color {
+  color: $color_2;
+}
+
+.g-color {
+  color: $color_3;
+}
+
+.pass-info-color {
+  color: $color_6;
+}
+
+.primary-btn {
+  background: $color_3;
+  color: $color_4;
+  font-size: 20px;
+}
+
+.primary-btn:hover {
+  background: $green-400;
+  color: $color_4;
+}
+
+@media (min-width: 768px) {
+  .custom-signup,
+  .custom-signin,
+  .custom-password-reset {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    >div {
+      background: $color_4;
+      z-index: 100;
+      border-radius: 15px;
+      box-shadow: 0 2px 4px 0 $color_1;
+      padding: 20px;
+    }
+  }
+
+  .custom-signin,
+  .custom-password-reset {
+    margin-top: 40px;
+  }
+}

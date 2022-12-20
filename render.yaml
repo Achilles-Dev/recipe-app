@@ -1,0 +1,18 @@
+services:
+  - type: web # valid values: https://render.com/docs/yaml-spec#type
+    name: recipe-app
+    env: ruby # valid values: https://render.com/docs/yaml-spec#environment
+    buildCommand: bin/render-build.sh
+    startCommand: bundle exec puma -C config/puma.rb
+    plan: free # optional; defaults to starter
+    envVars:
+      - key: SECRET_KEY_BASE
+        generateValue: true
+      - key: DATABASE_URL # Render PostgreSQL database
+        fromDatabase:
+          name: recipe-app-db
+          property: connectionString
+
+databases: # Render PostgreSQL database
+  - name: recipe-app-db
+    ipAllowList: [] # only allow internal connections
