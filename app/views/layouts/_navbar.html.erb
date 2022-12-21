@@ -1,36 +1,36 @@
-<nav class="d-flex px-8 py-4 justify-content-between items-center gap-12 border-b-2 border-sky-700 bg-sky-300">
+<nav class="d-flex bg-nav py-2 justify-content-between align-items-center">
 
-  <div class="left-side d-flex gap-3 items-center w-fit">
+  <div class="left-side d-flex gap-3 align-items-center">
     <%=bootstrap_form_with url: root_path, method: :get do %>
-      <button class="text-sky-600 btn btn-link">Home</button>
+      <button class="text-white text-decoration-none btn btn-link">Home</button>
     <% end %>
     <% if current_user.present? %>
       <%=bootstrap_form_with url: recipes_path, method: :get do %>
-        <button class="text-sky-600 btn btn-link">Recipes</button>
+        <button class="text-white text-decoration-none btn btn-link">Recipes</button>
       <% end %>
       <%=bootstrap_form_with url: foods_path, method: :get do %>
-        <button class="text-sky-600 btn btn-link">Foods</button>
+        <button class="text-white text-decoration-none btn btn-link">Foods</button>
       <% end %>
       <%=bootstrap_form_with url: inventories_path, method: :get do %>
-        <button class="text-sky-600 btn btn-link">Inventories</button>
+        <button class="text-white text-decoration-none btn btn-link">Inventories</button>
       <% end %>
     <% end %>
   </div>
-  <div class="righ-side d-flex gap-3 items-center w-fit">
+  <div class="right-side d-flex gap-3 align-items-center">
     <% unless current_user.present? %>
       <%=bootstrap_form_with model: User.new, url: new_user_session_path, method: :get do %>
-        <button class="text-sky-600 btn btn-link">Sign in</button>
+        <button class="text-white text-decoration-none btn btn-link">Login</button>
       <% end %>
       <%=bootstrap_form_with model: User.new, url: new_user_registration_path, method: :get do %>
-        <button class="text-sky-600 btn btn-link">Sign up</button>
+        <button class="text-white text-decoration-none btn btn-link">Signup</button>
       <% end %>
     <% end %>
     <% if current_user.present? %>
-      <span class="text-red-600 btn">
-        <%= current_user.email %>
+      <span class="text-white">
+        <%= current_user.name %>
       </span>
       <%=bootstrap_form_with model: User.new, url: destroy_user_session_path, method: :delete do %> 
-        <button class="text-red-600 btn btn-link">Sign out</button>
+        <button class="text-white text-decoration-none btn btn-link">Logout</button>
       <% end %>
     <% end %>
   </div>
