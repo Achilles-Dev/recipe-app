@@ -12,12 +12,30 @@ body {
   background: $color_5;
 }
 
-a {
+a, .btn-link {
   text-decoration: none;
 }
 
-.bg-nav {
+h1 {
+  color: $color_1;
+}
+
+h2 > a, p > a {
+  color: $color_6;
+}
+
+.bg-nav, .bg-green {
   background: $color_3;
+}
+
+.bg-green {
+  color: #fff;
+}
+
+.bg-green:hover {
+  background: #0aa359;
+  border: none;
+  color: #fff;
 }
 
 .header-color {

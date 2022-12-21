@@ -15,7 +15,9 @@
     <div class="d-flex flex-column gap-3">
       <%= render 'layouts/navbar' %>
       <%= render 'layouts/messages' %>
-      <%= yield %>
+      <div class="m-5">
+        <%= yield %>
+      </div>
     </div>
   </body>
 </html>
