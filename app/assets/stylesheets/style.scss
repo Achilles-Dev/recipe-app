@@ -12,6 +12,10 @@ body {
   background: $color_5;
 }
 
+a {
+  text-decoration: none;
+}
+
 .bg-nav {
   background: $color_3;
 }
@@ -58,7 +62,7 @@ body {
       z-index: 100;
       border-radius: 15px;
       box-shadow: 0 2px 4px 0 $color_1;
-      padding: 20px;
+      padding: 10px;
     }
   }
 
