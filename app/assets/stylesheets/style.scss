@@ -12,7 +12,8 @@ body {
   background: $color_5;
 }
 
-a, .btn-link {
+a,
+.btn-link {
   text-decoration: none;
 }
 
@@ -20,11 +21,13 @@ h1 {
   color: $color_1;
 }
 
-h2 > a, p > a {
+h2 > a,
+p > a {
   color: $color_6;
 }
 
-.bg-nav, .bg-green {
+.bg-nav,
+.bg-green {
   background: $color_3;
 }
 
