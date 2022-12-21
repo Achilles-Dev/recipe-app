@@ -12,6 +12,35 @@ body {
   background: $color_5;
 }
 
+a,
+.btn-link {
+  text-decoration: none;
+}
+
+h1 {
+  color: $color_1;
+}
+
+h2 > a,
+p > a {
+  color: $color_6;
+}
+
+.bg-nav,
+.bg-green {
+  background: $color_3;
+}
+
+.bg-green {
+  color: #fff;
+}
+
+.bg-green:hover {
+  background: #0aa359;
+  border: none;
+  color: #fff;
+}
+
 .header-color {
   color: $color_1;
 }
@@ -54,7 +83,7 @@ body {
       z-index: 100;
       border-radius: 15px;
       box-shadow: 0 2px 4px 0 $color_1;
-      padding: 20px;
+      padding: 10px;
     }
   }
 

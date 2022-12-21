@@ -2,5 +2,5 @@
 <%= bootstrap_form_with(model: @recipe_food, url: recipe_recipe_foods_path) do |form| %>
     <%= form.number_field :quantity, step: :any, placeholder: 'Quantity', min: 0, class: "form-control mb-4" %>
     <%= form.collection_select :food_id, @foods, :id, :name, { include_blank: true }, class: "form-select" %>
-    <%= form.submit 'Save Ingredient', class: 'btn btn-primary mt-3' %>
+    <%= form.submit 'Save Ingredient', class: 'btn bg-green mt-3' %>
 <% end %>

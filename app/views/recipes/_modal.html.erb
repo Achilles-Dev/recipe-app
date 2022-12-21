@@ -11,7 +11,7 @@
             <%= form.select :inventory_id, @inventories.collect {|i| [ i.name, i.id ] }, { include_blank: true } %>
         </div>
         <div class="modal-footer">
-          <%= form.submit 'Generate', class: 'btn btn-primary mt-3' %>
+          <%= form.submit 'Generate', class: 'btn bg-green mt-3' %>
         </div>
       <% end %>
       

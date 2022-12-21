@@ -1,5 +1,5 @@
 <h1 class="text-center mb-4"><%= @inventory.name %></h1>
-<%= button_to 'Add Food', new_inventory_inventory_food_path(@inventory), method: :get, class: 'btn btn-primary float-end mb-3' %>
+<%= button_to 'Add Food', new_inventory_inventory_food_path(@inventory), method: :get, class: 'btn bg-green float-end mb-3' %>
 <br>
 <br>
 <hr style="border-bottom: 2px solid black; width: 100%">
@@ -14,7 +14,7 @@
       <td><%=inventory_food.food.name%></td>
       <td><%=inventory_food.quantity%></td>
       <td>
-        <%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory, inventory_food), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-link" %>
+        <%= button_to "Remove", inventory_inventory_food_path(inventory_food.inventory, inventory_food), html: {'data-turbo' => "false"}, :method => :delete, class: "btn btn-danger" %>
       </td>
     </tr>
   <% end %>

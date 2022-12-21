@@ -17,11 +17,11 @@
   <% if @user == @recipe.user %>
     <div class='d-flex flex-row justify-content-between px-5 mt-5'>
       <div>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#shoppingListModal">
+        <button type="button" class="btn bg-green" data-bs-toggle="modal" data-bs-target="#shoppingListModal">
           Generate shopping list
         </button>
       </div>
-      <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn btn-primary'%>
+      <%= link_to 'Add ingredient', new_recipe_recipe_food_path(@recipe), class: 'btn bg-green'%>
     </div>
   <% end %>
   <%= render "recipes/modal"%>
